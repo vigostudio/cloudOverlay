@@ -9,7 +9,7 @@ WORKDIR /usr/src/app
 ADD src	src
 ADD public public
 COPY package.json .
-COPY .env .
+#COPY .env .
 #COPY package-lock.json .
 COPY yarn.lock .
 

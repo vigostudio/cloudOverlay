@@ -1,0 +1,34 @@
+version: '3.7'
+services :
+
+  server:
+    build:
+      context: overlay-server
+      dockerfile: Dockerfile
+    ports:
+      - "8080:8080"
+
+  client:
+    build:
+      context: overlay-client
+      dockerfile: Dockerfile
+    ports:
+      - "8081:80"
+
+  redis:
+    container_name: redis
+    image: redis:latest
+    ports:
+      - '6379:6379'
+    #volumes:
+    #  - data:/data
+  
+  mongo:
+    container_name: mongo
+    image: mongo
+    restart: always
+    ports:
+      - '27017:27017'
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: root
+      MONGO_INITDB_ROOT_PASSWORD: example
