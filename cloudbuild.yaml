@@ -8,6 +8,14 @@ steps:
   - 'gcr.io/$PROJECT_ID/github.com/vigostudio/overlay-client:$SHORT_SHA'
   - 'overlay-client/'
 
+- name: 'gcr.io/cloud-builders/docker'
+  id: Build
+  args:
+  - 'build'
+  - '-t'
+  - 'gcr.io/$PROJECT_ID/github.com/vigostudio/overlay-client:$SHORT_SHA'
+  - 'overlay-server/'
+
 # This step pushes the image to Container Registry
 # The PROJECT_ID and SHORT_SHA variables are automatically
 # replaced by Cloud Build.
@@ -16,3 +24,8 @@ steps:
   args:
   - 'push'
   - 'gcr.io/$PROJECT_ID/github.com/vigostudio/overlay-client:$SHORT_SHA'
+- name: 'gcr.io/cloud-builders/docker'
+  id: Push
+  args:
+  - 'push'
+  - 'gcr.io/$PROJECT_ID/github.com/vigostudio/overlay-server:$SHORT_SHA'
