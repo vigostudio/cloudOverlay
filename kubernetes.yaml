@@ -1,0 +1,34 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: overlay-client
+  labels:
+    app: overlay-client
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: overlay-client
+  template:
+    metadata:
+      labels:
+        app: overlay-client
+    spec:
+      containers:
+      - name: overlay-client
+        image: gcr.io/authentic-genre-265016/github.com/vigostudio/overlay-server:latest
+        ports:
+        - containerPort: 80
+---
+kind: Service
+apiVersion: v1
+metadata:
+  name: overlay-client-service
+spec:
+  selector:
+    app: overlay-client
+  ports:
+  - protocol: TCP
+    port: 80
+    targetPort: 80
+  type: LoadBalancer

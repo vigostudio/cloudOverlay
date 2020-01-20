@@ -5,7 +5,7 @@ steps:
   args:
   - 'build'
   - '-t'
-  - 'gcr.io/$PROJECT_ID/github.com/vigostudio/overlay-client:$SHORT_SHA'
+  - 'gcr.io/$PROJECT_ID/github.com/vigostudio/overlay-client:latest'
   - 'overlay-client/'
 
 - name: 'gcr.io/cloud-builders/docker'
@@ -13,7 +13,7 @@ steps:
   args:
   - 'build'
   - '-t'
-  - 'gcr.io/$PROJECT_ID/github.com/vigostudio/overlay-client:$SHORT_SHA'
+  - 'gcr.io/$PROJECT_ID/github.com/vigostudio/overlay-client:latest'
   - 'overlay-server/'
 
 # This step pushes the image to Container Registry
@@ -23,12 +23,12 @@ steps:
   id: Push
   args:
   - 'push'
-  - 'gcr.io/$PROJECT_ID/github.com/vigostudio/overlay-server:$SHORT_SHA'
+  - 'gcr.io/$PROJECT_ID/github.com/vigostudio/overlay-server:latest'
 - name: 'gcr.io/cloud-builders/docker'
   id: Push2
   args:
   - 'push'
-  - 'gcr.io/$PROJECT_ID/github.com/vigostudio/overlay-server:$SHORT_SHA'
+  - 'gcr.io/$PROJECT_ID/github.com/vigostudio/overlay-server:latest'
 
 
 # - name: 'gcr.io/cloud-builders/kubectl'
@@ -38,5 +38,5 @@ steps:
 #   - '-f'
 #   - 'kubernetes.yaml'
 #   env:
-#   - 'CLOUDSDK_COMPUTE_ZONE=us-central1-b'
-#   - 'CLOUDSDK_CONTAINER_CLUSTER=hello-cloudbuild'
+#   - 'CLOUDSDK_COMPUTE_ZONE=asia-southeast1-a'
+#   - 'CLOUDSDK_CONTAINER_CLUSTER=home-web-vigostudio-cluster'
