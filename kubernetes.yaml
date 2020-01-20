@@ -23,7 +23,7 @@ spec:
 kind: Service
 apiVersion: v1
 metadata:
-  name: overlay-client-service
+  name: overlay-client
 spec:
   selector:
     app: overlay-client

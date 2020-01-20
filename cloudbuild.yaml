@@ -24,6 +24,7 @@ steps:
   args:
   - 'push'
   - 'gcr.io/$PROJECT_ID/github.com/vigostudio/overlay-client:latest'
+
 - name: 'gcr.io/cloud-builders/docker'
   id: Push2
   args:
@@ -31,12 +32,12 @@ steps:
   - 'gcr.io/$PROJECT_ID/github.com/vigostudio/overlay-server:latest'
 
 
-# - name: 'gcr.io/cloud-builders/kubectl'
-#   id: Deploy
-#   args:
-#   - 'apply'
-#   - '-f'
-#   - 'kubernetes.yaml'
-#   env:
-#   - 'CLOUDSDK_COMPUTE_ZONE=asia-southeast1-a'
-#   - 'CLOUDSDK_CONTAINER_CLUSTER=home-web-vigostudio-cluster'
+- name: 'gcr.io/cloud-builders/kubectl'
+  id: Deploy
+  args:
+  - 'apply'
+  - '-f'
+  - 'kubernetes.yaml'
+  env:
+  - 'CLOUDSDK_COMPUTE_ZONE=asia-southeast1-a'
+  - 'CLOUDSDK_CONTAINER_CLUSTER=home-web-vigostudio-cluster'
