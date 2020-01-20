@@ -9,7 +9,7 @@ steps:
   - 'overlay-client/'
 
 - name: 'gcr.io/cloud-builders/docker'
-  id: Build
+  id: Build2
   args:
   - 'build'
   - '-t'
@@ -25,7 +25,7 @@ steps:
   - 'push'
   - 'gcr.io/$PROJECT_ID/github.com/vigostudio/overlay-server:$SHORT_SHA'
 - name: 'gcr.io/cloud-builders/docker'
-  id: Push
+  id: Push2
   args:
   - 'push'
   - 'gcr.io/$PROJECT_ID/github.com/vigostudio/overlay-server:$SHORT_SHA'
