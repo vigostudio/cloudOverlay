@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
       - name: overlay-client
-        image: gcr.io/authentic-genre-265016/github.com/vigostudio/overlay-server:latest
+        image: gcr.io/authentic-genre-265016/github.com/vigostudio/overlay-client:latest
         ports:
         - containerPort: 80
 ---
